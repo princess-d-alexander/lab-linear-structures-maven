@@ -1,9 +1,7 @@
 package edu.grinnell.csc207.util;
 
-import edu.grinnell.csc207.linear.Stack;
 import edu.grinnell.csc207.linear.LinkedStack;
-
-import java.io.PrintWriter;
+import edu.grinnell.csc207.linear.Stack;
 
 /**
  * Assorted utilities for working with strings.
@@ -19,9 +17,15 @@ public class StringUtils {
   /**
    * Determine whether the parens match in string.
    */
-  public static boolean checkMatching(String str) {
+  public static boolean checkMatching(String str) throws Exception {
     Stack<Character> parens = new LinkedStack<Character>();
-    return false;       // STUB
+    for(int i = 0; i < str.length(); i++){
+      if (str.charAt(i) == '('){
+         //didn't complete implementation
+      }
+    }
+    return false;
   } // checkMatching
+
 } // class StringUtils    
 

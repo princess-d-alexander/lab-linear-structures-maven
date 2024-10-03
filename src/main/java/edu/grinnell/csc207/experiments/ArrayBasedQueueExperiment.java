@@ -51,12 +51,7 @@ public class ArrayBasedQueueExperiment {
     // And we're back down to the empty queue
     expt.isEmpty();
     */
-
-    /*
-    // An iteration experiment, once we've workd out some kinks (Ray?)
-    expt.put("a");
-    expt.put("b");
-    expt.put("c");
+    l
     for (String s : expt) {
       System.out.println(s);
     } // for
