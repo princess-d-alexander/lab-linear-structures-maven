@@ -65,6 +65,7 @@ public class ArrayBasedStack<T> implements Stack<T> {
       throw new Exception("full");
     } // if full
     this.size++;
+    this.values[this.size - 1] = val;
   } // put(T)
 
   @Override
