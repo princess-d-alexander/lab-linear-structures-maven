@@ -14,6 +14,5 @@ public class ArrayBasedStackExperiment {
    */
   public static void main(String[] args) throws Exception {
     LinearStructureExperiment.expt01(new ArrayBasedStack<String>(16), "size16.");
-    LinearStructureExperiment.expt01(new ArrayBasedStack<String>(4), "size04.");
-  } // main(String[])
+    LinearStructureExperiment.expt01(new ArrayBasedStack<String>(4), "size04.");  } // main(String[])
 } // class ArrayBasedStackExperiment

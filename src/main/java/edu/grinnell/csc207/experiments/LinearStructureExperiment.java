@@ -3,9 +3,6 @@ package edu.grinnell.csc207.experiments;
 import edu.grinnell.csc207.linear.LinearStructure;
 import edu.grinnell.csc207.linear.ReportingLinearStructure;
 
-import java.io.PrintWriter;
-import java.util.Iterator;
-
 /**
  * Experiments with LinearStructures.
  *
