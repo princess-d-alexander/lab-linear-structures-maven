@@ -7,7 +7,7 @@ import edu.grinnell.csc207.linear.ReportingLinearStructure;
  * A very simple experiment with ArrayBasedQueues.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Princess Alexander
  */
 public class ArrayBasedQueueExperiment {
   /**
@@ -51,14 +51,14 @@ public class ArrayBasedQueueExperiment {
     // And we're back down to the empty queue
     expt.isEmpty();
     */
-    l
+    
     for (String s : expt) {
       System.out.println(s);
     } // for
     expt.get();
     expt.get();
     expt.get();
-     */
+    
     
     /*
     // Future tests, once we've worked out some more kinks (Pete
