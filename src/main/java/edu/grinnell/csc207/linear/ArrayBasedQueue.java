@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * Queues implemented with arrays.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Princess Alexander
  */
 public class ArrayBasedQueue<T> implements Queue<T> {
   // +--------+----------------------------------------------------------
@@ -78,8 +78,8 @@ public class ArrayBasedQueue<T> implements Queue<T> {
     } // if empty
     // Grab and clear the element at the front of the queue
     T result = this.values[this.front];
-    this.values[this.front++] = null;
-    // We're removing an element, so decrement the size
+    this.values[this.front] = null;
+    this.front = (this.front + 1) % this.values.length; // CORRECTION: Wraparound fix
     --this.size;
     // And we're done
     return result;
