@@ -128,7 +128,11 @@ public class ArrayBasedQueue<T> implements Queue<T> {
     
       @Override
       public void remove() throws UnsupportedOperationException {
-        throw new UnsupportedOperationException();
+        for (int i = offset; i < size; i++) {
+          values[(i + front + values.length - 1) % values.length] = values[(i + front) % values.length];
+        }
+        values[(front + size) % values.length] = null;
+        size--;
       } // remove()
     };
   } // iterator()
