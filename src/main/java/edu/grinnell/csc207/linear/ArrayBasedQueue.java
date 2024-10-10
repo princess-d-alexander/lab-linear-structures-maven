@@ -8,6 +8,7 @@ import java.util.NoSuchElementException;
  *
  * @author Samuel A. Rebelsky
  * @author Princess Alexander
+ * @author David William Stroud
  */
 public class ArrayBasedQueue<T> implements Queue<T> {
   // +--------+----------------------------------------------------------
@@ -105,7 +106,31 @@ public class ArrayBasedQueue<T> implements Queue<T> {
 
   @Override
   public Iterator<T> iterator() {
-    return new ArrayBasedQueueIterator<T>(this);
+    return new Iterator<T>() {
+      int offset = 0;
+
+
+      @Override
+      public T next() throws NoSuchElementException {
+        if (!this.hasNext()) {
+          throw new NoSuchElementException("no elements remain");
+        } // if no elements
+        T result = values[(offset + front) % values.length];
+        offset = (offset + 1);
+        return result;
+
+      } // next()
+    
+      @Override
+      public boolean hasNext() {
+        return offset >= size;
+      } // hasNext()
+    
+      @Override
+      public void remove() throws UnsupportedOperationException {
+        throw new UnsupportedOperationException();
+      } // remove()
+    };
   } // iterator()
 
   // +----------------+--------------------------------------------------
@@ -121,45 +146,3 @@ public class ArrayBasedQueue<T> implements Queue<T> {
   } // back()
 
 } // class ArrayBasedQueue<T>
-
-
-class ArrayBasedQueueIterator<T> implements Iterator<T> {
-  // +--------+----------------------------------------------------------
-  // | Fields |
-  // +--------+
-
-  // +--------------+----------------------------------------------------
-  // | Constructors |
-  // +--------------+
-
-  /**
-   * Create a new iterator.
-   */
-  public ArrayBasedQueueIterator(ArrayBasedQueue<T> q) {
-    // STUB
-  } // ArrayBasedQueueIterator
-
-  // +---------+---------------------------------------------------------
-  // | Methods |
-  // +---------+
-
-  @Override
-  public T next() throws NoSuchElementException {
-    if (!this.hasNext()) {
-      throw new NoSuchElementException("no elements remain");
-    } // if no elements
-    // STUB
-    throw new NoSuchElementException("unimplemented");
-  } // next()
-
-  @Override
-  public boolean hasNext() {
-    // STUB
-    return false;
-  } // hasNext()
-
-  @Override
-  public void remove() throws UnsupportedOperationException {
-    throw new UnsupportedOperationException();
-  } // remove()
-} // ArrayBasedQueueIterator<T>
