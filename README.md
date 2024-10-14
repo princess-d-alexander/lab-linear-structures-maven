@@ -5,6 +5,7 @@ Authors:
 * Samuel A. Rebelsky
 * Princess Alexander
 * Sara Jaljaa
+* David William Stroud
 
 The latest version of the CSC-207 lab on linear structures, now with Maven.
 

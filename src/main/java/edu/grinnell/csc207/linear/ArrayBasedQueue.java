@@ -95,15 +95,27 @@ public class ArrayBasedQueue<T> implements Queue<T> {
   } // peek()
 
   @Override
-  public T dequeue() throws Exception {
-    return this.get();
-  } // dequeue
-
-  @Override
   public void enqueue(T val) throws Exception {
-    this.put(val);
+      if (this.isFull()) {
+          throw new Exception("Queue is full");
+      }
+      this.values[(this.front + this.size) % this.values.length] = val;
+      this.size++;
   } // enqueue
 
+  @Override
+  public T dequeue() throws Exception {
+      if (this.isEmpty()) {
+          throw new Exception("Queue is empty");
+      }
+      T result = this.values[this.front];
+      this.values[this.front] = null;
+      this.front = (this.front + 1) % this.values.length;
+      this.size--;
+      return result;
+  } // dequeue
+
+  
   @Override
   public Iterator<T> iterator() {
     return new Iterator<T>() {
@@ -136,6 +148,19 @@ public class ArrayBasedQueue<T> implements Queue<T> {
       } // remove()
     };
   } // iterator()
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   // +----------------+--------------------------------------------------
   // | Helper Methods |

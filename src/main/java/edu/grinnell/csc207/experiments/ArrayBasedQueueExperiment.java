@@ -40,6 +40,7 @@ public class ArrayBasedQueueExperiment {
     // It's always good to see what happens after you've cleared
     // out a structure. So add a few more elements.
     // We'll leave this test until we've worked out some kinks (Dave?)
+    */ // UNCOMMENTED OUT CODE BELOW
     expt.put("e");
     expt.peek();
     expt.put("f");
@@ -50,7 +51,7 @@ public class ArrayBasedQueueExperiment {
     expt.get();
     // And we're back down to the empty queue
     expt.isEmpty();
-    */
+    
     
     for (String s : expt) {
       System.out.println(s);
