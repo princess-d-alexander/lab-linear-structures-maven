@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * A simple array-based stack.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Princess Alexander
  */
 public class LinkedStack<T> implements Stack<T> {
   // +--------+----------------------------------------------------------
@@ -44,10 +44,19 @@ public class LinkedStack<T> implements Stack<T> {
     return false;
   } // isFull()
 
+  // @Override
+  // public T peek() {
+  //   return this.top.value;
+  // } // peek()
+
+  // Peek at the top element without removing it (Modified)
   @Override
-  public T peek() {
-    return this.top.value;
-  } // peek()
+  public T peek() throws Exception {
+      if (this.isEmpty()) {
+          throw new Exception("Stack is empty");
+      }
+      return this.top.value;
+  }
 
   @Override
   public void put(T val) throws Exception {
@@ -76,15 +85,31 @@ public class LinkedStack<T> implements Stack<T> {
   // | Stack Methods |
   // +---------------+
 
+  // @Override
+  // public void push(T val) throws Exception {
+  //   this.put(val);
+  // } // push(T)
+  // Push an element onto the stack
   @Override
-  public void push(T val) throws Exception {
-    this.put(val);
-  } // push(T)
+  public void push(T val) {
+      this.top = new Node<T>(val, this.top);  // (Modified) New node points to the previous top
+  }
 
+  // @Override
+  // public T pop() throws Exception {
+  //   return this.get();
+  // } // pop
+
+  // Pop the top element from the stack
   @Override
   public T pop() throws Exception {
-    return this.get();
-  } // pop
+      if (this.isEmpty()) {
+          throw new Exception("Stack is empty");
+      }
+      T result = this.top.value;
+      this.top = this.top.next;  // (Modified) Move the top to the next node
+      return result;
+  }
 
 } // LinkedStack<T>
 
